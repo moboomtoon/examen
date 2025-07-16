@@ -30,22 +30,23 @@ def stock_marca():
     print(f'El stock es: {total}')
 
 def busqueda_precio():
-    while True:
-        p_min=int(input("ingrese precio minimo"))
-        p_max=int(input("ingrese precio maximo"))
-        if (p_min and p_max) in stock.items():
-            print(stock.items)
-            print("falta completar")
-            #completar"
-            break
+    p_min = int(input("Ingrese precio mínimo: "))
+    p_max = int(input("Ingrese precio máximo: "))
+
+    encontrados = False  # bandera para saber si se encontró al menos uno
+    print("\nModelos en el rango de precios:")
+    for modelo, datos in stock.items():
+        marca, precio, cantidad = datos
+        if p_min <= precio <= p_max:
+            almacenamiento = productos[modelo][4]  
+            print(f"- Modelo: {modelo}, Almacenamiento: {almacenamiento}, Precio: ${precio}")
+            encontrados = True
+
+        if not encontrados:
+            print("No hay notebooks en ese rango de precios.")
+
         else:
             print("no hay notebooks en ese rango de precios")
-            
-        ##for precio,lista in productos.items():
-            #print('Marca   :',productos[0])
-            #print('Modelo  :',productos[])
-            #print('RAM     :',productos[2])
-            #print('GIB DD  :',productos[4])
 
 def listado_productos():
     print("------ Listado de Notebooks Ordenados -------")
