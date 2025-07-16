@@ -50,9 +50,13 @@ def busqueda_precio():
 
 def listado_productos():
     print("------ Listado de Notebooks Ordenados -------")
-    for clave in productos.items():
-        print(f'{[0]}\t{[0]}\t{[2]}\t{[4]}')
-        #arreglar!!!
+    print("Modelo\t\tMarca\t\tAlmacenamiento\tTipo Almacenamiento Disco")
+    print("----------------------------------------------------------")
+    for modelo, datos in productos.items():
+        marca = datos[0]
+        tipo_disco = datos[4]
+        capacidad = datos[2]
+        print(f"{modelo}\t{marca}\t\t{capacidad}\t\t{tipo_disco}")
 
 while True:
     print("")
