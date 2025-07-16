@@ -15,15 +15,19 @@ stock = {'8475HD': ["hp",387990,10], '2175HD': ["acer",327990,4], 'JjfFHD': ["as
 marcas = { "hp": [31], "acer":[6], "asus":[1], "lenovo":[39], "dell":[1]}
 
 def stock_marca():
-    marca=input("ingrese marca a consultar").lower
-    for valor in productos:
-        if marca in productos.items():
-            if valor==marca :
-                print(f"el stock es: {[2,2]}")
-                #arreglarppipipipipi
-            break
-    else: 
-        print("marca no encontrada")
+    modelo = []    
+    total = 0
+    marca = input('Ingrese marca a consultar: ')
+
+    for clave, valor in productos.items():  
+        if marca.lower() == valor[0]:  
+            modelo.append(clave)
+
+    for modelo_actual in modelo:
+        if modelo_actual in stock:
+            precio, cantidad = stock[modelo_actual]
+            total += cantidad
+    print(f'El stock es: {total}')
 
 def busqueda_precio():
     while True:
